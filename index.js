@@ -32,10 +32,11 @@ client.on('ready', () => {
 client.on('message', (message) => {
   const messageWords = message.content.split(' ');
   const prefix = messageWords[0];
-  const rolls = messageWords[1] | 1;
+  const rolls = messageWords[1] || 1;
   
   if (prefix === '$sfida') {
     if (rolls > 0) {
+      console.log(`Rolling ${rolls} dices`);
       const rollResults = [];
       for (let i = 0; i < rolls; i++) {
         try {
