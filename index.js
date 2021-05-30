@@ -3,9 +3,7 @@ const client = new Discord.Client();
 const sides = 6;
 
 function getRoll() {
-  let value = Math.floor(Math.random() * sides);
-  console.log("Rolled:", value);
-  return value;
+  return value = Math.floor((Math.random() * sides) + 1);
 }
 
 function getChallengeResult(value) {
@@ -28,7 +26,7 @@ function getChallengeResult(value) {
 }
 
 client.on('ready', () => {
-  console.log('I am ready!');
+  console.log('BOT Ready!');
 });
 
 client.on('message', (message) => {
@@ -41,7 +39,10 @@ client.on('message', (message) => {
       const rollResults = [];
       for (let i = 0; i < rolls; i++) {
         try {
-          rollResults.push(getChallengeResult(getRoll()));
+          const roll = getRoll();
+          const converted = getChallengeResult(roll); 
+          console.log(`Rolled: ${value} -> Converted: ${converted}`);
+          rollResults.push(roll);
         } catch (e) {
           console.error(e);
         }
