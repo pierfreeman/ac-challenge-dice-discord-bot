@@ -43,7 +43,7 @@ client.on('message', (message) => {
           const roll = getRoll();
           const converted = getChallengeResult(roll); 
           console.log(`Rolled: ${value} -> Converted: ${converted}`);
-          rollResults.push(roll);
+          rollResults.push(converted);
         } catch (e) {
           console.error(e);
         }
